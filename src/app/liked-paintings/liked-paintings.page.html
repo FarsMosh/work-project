@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Liked Paintings
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ng-container *ngFor="let i of getLikedPaintingsInPairs()">
+      <ion-row>
+        <ion-col size="6" *ngIf="i[0]">
+          <ion-card (click)="openDetails(i[0])">
+            <img [src]="i[0]?.primaryImage" />
+            <ion-card-content>
+              {{ i[0]?.title }}
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" *ngIf="i[1]">
+          <ion-card (click)="openDetails(i[1])">
+            <img [src]="i[1]?.primaryImage" />
+            <ion-card-content>
+              {{ i[1]?.title }}
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+  </ion-grid>
+</ion-content>
